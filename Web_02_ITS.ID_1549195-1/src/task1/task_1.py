@@ -3,7 +3,7 @@ from telebot import types
 
 
 # Инициализация бота
-bot = telebot.TeleBot('7223296971:AAEAb-QM30d2ojt6_db6NyUWX9Qaxl7uqq8')
+bot = telebot.TeleBot('...')
 
 # Словарь исследований и соответствующих препаратов
 AVAILABLE_TRIALS = {
