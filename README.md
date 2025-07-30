@@ -1,5 +1,5 @@
 # sber_projects
-Резюме
+# Резюме
 София Терегулова
 Телефон: +7 977 668 78 33 | Email: sofiateregulova11534@gmail.com
 GitHub: https://github.com/sonyawst
