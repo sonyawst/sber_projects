@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Контактная информация медицинского центра 'Здоровье'. Адрес, телефоны, график работы. Как нас найти.">
+    <title>Контакты - Медицинский центр "Здоровье"</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Медицинский центр "Здоровье"</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">О нас</a></li>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="doctors.html">Врачи</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="contact-info">
+            <h2>Контактная информация</h2>
+            
+            <div class="contact-details">
+                <div class="contact-item">
+                    <h3>Адрес</h3>
+                    <p>г. Москва, ул. Медицинская, д. 15, стр. 1</p>
+                    <p>Ближайшее метро: «Медицинская» (5 минут пешком)</p>
+                </div>
+
+                <div class="contact-item">
+                    <h3>Телефоны</h3>
+                    <p>Регистратура: <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                    <p>Справочная: <a href="tel:+74951234568">+7 (495) 123-45-68</a></p>
+                    <p>Экстренная связь: <a href="tel:+79161234567">+7 (916) 123-45-67</a></p>
+                </div>
+
+                <div class="contact-item">
+                    <h3>График работы</h3>
+                    <p>Понедельник - Пятница: 8:00 - 20:00</p>
+                    <p>Суббота: 9:00 - 18:00</p>
+                    <p>Воскресенье: 9:00 - 16:00</p>
+                </div>
+
+                <div class="contact-item">
+                    <h3>Электронная почта</h3>
+                    <p>Общие вопросы: <a href="mailto:info@health-center.ru">info@health-center.ru</a></p>
+                    <p>Запись на прием: <a href="mailto:appointment@health-center.ru">appointment@health-center.ru</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <h2>Как нас найти</h2>
+            <div class="map-container">
+                <!-- Заглушка для карты - в реальном проекте заменить на iframe с Google/Яндекс Картами -->
+                <div class="map-placeholder">
+                    <p>Здесь будет интерактивная карта</p>
+                    <p>г. Москва, ул. Медицинская, д. 15, стр. 1</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="appointment-form">
+            <h2>Записаться на прием</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Ваше имя:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Телефон:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Услуга:</label>
+                    <select id="service" name="service">
+                        <option value="">Выберите услугу</option>
+                        <option value="therapy">Консультация терапевта</option>
+                        <option value="surgery">Консультация хирурга</option>
+                        <option value="pediatrics">Консультация педиатра</option>
+                        <option value="neurology">Консультация невролога</option>
+                        <option value="diagnostics">Диагностика</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Желаемая дата:</label>
+                    <input type="date" id="date" name="date">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Дополнительная информация:</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+
+                <button type="submit">Отправить заявку</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 Медицинский центр "Здоровье". Все права защищены.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
