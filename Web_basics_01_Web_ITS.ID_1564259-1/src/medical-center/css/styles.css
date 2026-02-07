@@ -6,6 +6,8 @@ body {
     padding: 0;
     color: #333;
     background-color: #f4f4f4;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* === FLEXBOX ДЛЯ HEADER И FOOTER === */
@@ -37,38 +39,54 @@ nav ul {
     display: flex;
 }
 
-nav ul li {
-    /* Flexbox сам управляет отступами */
-}
-
 nav ul li a {
     display: block;
     color: white;
     text-decoration: none;
     padding: 15px 20px;
     text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-/* === СТИЛИ ДЛЯ MAIN === */
+nav ul li a:hover {
+    background-color: #005999;
+    transform: translateY(-2px);
+}
+
+nav ul li a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover:after {
+    width: 80%;
+}
+
+/* === ОСНОВНЫЕ СТИЛИ MAIN === */
 main {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-/* CSS Grid для основного контента */
-main {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
+    overflow: visible !important;
 }
 
-/* Стили для всех секций и статей */
 section, article {
     background: white;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: visible !important;
 }
 
 /* === СПЕЦИФИЧНЫЕ СТИЛИ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ === */
@@ -78,6 +96,7 @@ section, article {
     grid-template-rows: auto;
     gap: 30px;
     padding: 20px;
+    min-height: 100vh;
 }
 
 .welcome {
@@ -102,6 +121,12 @@ section, article {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
 }
 
 .emergency {
@@ -114,50 +139,94 @@ section, article {
 }
 
 /* === СТИЛИ ДЛЯ СТРАНИЦЫ "ВРАЧИ" === */
+.doctors-main {
+    min-height: 100vh;
+    overflow: visible !important;
+}
+
+.doctors-intro {
+    text-align: center;
+    grid-column: 1 / -1;
+}
+
 .doctors-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 30px;
+    width: 100%;
+    margin: 0 auto;
+    grid-column: 1 / -1;
 }
 
 .doctor-card {
     display: flex;
     flex-direction: column;
     background: white;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    height: auto;
+    min-height: 500px;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 /* Стили для фото врачей */
 .doctor-photo {
-    height: 150px;
-    background: #f0f0f0;
+    width: 70%;
+    height: 70%;
     overflow: hidden;
+    flex-shrink: 0;
+    background: #f0f0f0;
 }
 
 .doctor-photo img {
     width: 50%;
-    height: 20%;
+    height: 150%;
     object-fit: cover;
     display: block;
 }
 
-
 .doctor-info {
-    padding: 20px;
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.doctor-info h3 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    font-size: 1.3em;
+    line-height: 1.3;
 }
 
 .specialization {
     color: #007acc;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 0 0 8px 0;
+    font-size: 1em;
 }
 
 .experience {
-    color: #666;
+    color: #7f8c8d;
+    margin: 0 0 15px 0;
     font-size: 0.9em;
-    margin-bottom: 10px;
+}
+
+.bio {
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+    flex-grow: 1;
 }
 
 /* === СТИЛИ ДЛЯ СТРАНИЦЫ "КОНТАКТЫ" === */
@@ -171,6 +240,12 @@ section, article {
     background: white;
     padding: 20px;
     border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .contact-item h3 {
@@ -181,6 +256,10 @@ section, article {
 .contact-item a {
     color: #007acc;
     text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
 }
 
 .map-container {
@@ -215,6 +294,12 @@ section, article {
     padding: 25px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.service-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
 }
 
 .service-category h3 {
@@ -266,6 +351,11 @@ section, article {
     padding: 15px;
     background: #f8f9fa;
     border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.price-item:hover {
+    background: #e9ecef;
 }
 
 .price-item h4 {
@@ -306,6 +396,10 @@ section, article {
     text-decoration: underline;
 }
 
+.appointment-cta a:hover {
+    color: #e6f7ff;
+}
+
 /* === СТИЛИ ДЛЯ ФОРМЫ === */
 .appointment-form {
     background: white;
@@ -331,6 +425,15 @@ section, article {
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #007acc;
+    box-shadow: 0 0 5px rgba(0,122,204,0.3);
+    outline: none;
 }
 
 button[type="submit"] {
@@ -341,52 +444,6 @@ button[type="submit"] {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-}
-
-/* === ПЛАВНЫЕ ПЕРЕХОДЫ И АНИМАЦИИ === */
-a, button {
-    transition: all 0.3s ease-in-out;
-}
-
-/* Улучшенные hover-эффекты для навигации */
-nav ul li a {
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-nav ul li a:hover {
-    background-color: #005999;
-    transform: translateY(-2px);
-}
-
-nav ul li a:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: white;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-
-nav ul li a:hover:after {
-    width: 80%;
-}
-
-/* Плавные переходы для карточек */
-.service-category, .doctor-card, .feature-card {
-    transition: all 0.3s ease;
-}
-
-.service-category:hover, .doctor-card:hover, .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-}
-
-/* Плавные переходы для кнопок формы */
-button[type="submit"] {
     transition: all 0.3s ease;
 }
 
@@ -395,7 +452,7 @@ button[type="submit"]:hover {
     transform: scale(1.05);
 }
 
-/* Анимации появления */
+/* === АНИМАЦИИ === */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -449,6 +506,11 @@ button[type="submit"]:hover {
     animation: slideInLeft 0.6s ease-out;
 }
 
+.doctor-card:nth-child(1) { animation-delay: 0.1s; }
+.doctor-card:nth-child(2) { animation-delay: 0.2s; }
+.doctor-card:nth-child(3) { animation-delay: 0.3s; }
+.doctor-card:nth-child(4) { animation-delay: 0.4s; }
+
 h1, h2, h3 {
     animation: fadeIn 0.8s ease-out;
 }
@@ -469,20 +531,20 @@ h1, h2, h3 {
     
     .doctors-grid {
         grid-template-columns: repeat(2, 1fr);
+        max-width: 1200px;
+    }
+    
+    .doctor-card {
+        max-width: 100%;
+        min-height: 520px;
+    }
+    
+    .doctor-photo {
+        height: 280px;
     }
     
     .contact-details {
         grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .doctor-card {
-        flex-direction: row;
-    }
-    
-    .doctor-photo {
-        width: 200px;
-        height: auto;
-        flex-shrink: 0;
     }
 }
 
@@ -494,9 +556,18 @@ h1, h2, h3 {
     .contact-details {
         grid-template-columns: repeat(4, 1fr);
     }
+    
+    .doctors-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+    
+    .doctor-card {
+        min-height: 500px;
+    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     /* Адаптивная навигация */
     nav ul {
         flex-direction: column;
@@ -522,6 +593,7 @@ h1, h2, h3 {
     main {
         padding: 15px;
         gap: 20px;
+        grid-template-columns: 1fr;
     }
     
     /* Адаптивная сетка для главной страницы */
@@ -539,13 +611,24 @@ h1, h2, h3 {
     }
     
     /* Адаптивные карточки врачей */
+    .doctors-grid {
+        gap: 20px;
+        padding: 0 10px;
+    }
+    
     .doctor-card {
+        min-height: 450px;
+        margin-bottom: 20px;
         flex-direction: column;
     }
     
     .doctor-photo {
         width: 100%;
         height: 200px;
+    }
+    
+    .doctor-info {
+        padding: 20px;
     }
     
     /* Адаптивная контактная информация */
@@ -574,5 +657,164 @@ h1, h2, h3 {
     
     .welcome {
         padding: 20px 15px;
+    }
+    
+    .doctor-card {
+        min-height: 400px;
+    }
+    
+    .doctor-photo {
+        height: 180px;
+    }
+}
+
+/* === СТИЛИ ДЛЯ ВАЛИДАЦИИ ФОРМЫ === */
+.error-message {
+    color: #dc3545;
+    font-size: 0.85em;
+    margin-top: 5px;
+    padding: 5px 10px;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+}
+
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #c3e6cb;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Стили для невалидных полей */
+input:invalid, select:invalid, textarea:invalid {
+    border-color: #dc3545 !important;
+}
+
+input:valid, select:valid, textarea:valid {
+    border-color: #28a745 !important;
+}
+
+/* === СТИЛИ ДЛЯ МОДАЛЬНОГО ОКНА ВРАЧЕЙ === */
+.doctor-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.doctor-modal .modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.doctor-modal .close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #ff4757;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.doctor-modal .close-modal:hover {
+    background: #ff3742;
+}
+
+/* Анимации для модального окна */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.doctor-modal.show {
+    opacity: 1;
+}
+
+.doctor-modal.show .modal-content {
+    transform: scale(1);
+}
+
+/* Курсор-указатель для карточек врачей */
+.doctor-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* === СТИЛИ ДЛЯ СГЕНЕРИРОВАННОЙ СТРАНИЦЫ === */
+.generated-info {
+    background: #e3f2fd;
+    color: #1565c0;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border-left: 4px solid #2196f3;
+    font-size: 0.9em;
+    margin: 10px 0;
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.stats p {
+    background: #f8f9fa;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    margin: 0;
+}
+
+/* Улучшения для мобильных */
+@media (max-width: 768px) {
+    .stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stats p {
+        width: 100%;
+        text-align: center;
     }
 }

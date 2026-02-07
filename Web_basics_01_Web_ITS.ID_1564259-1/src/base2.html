@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Медицинский центр "Здоровье"{% endblock %}</title>
+    
+    <!-- Подключаем статические файлы -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static '../css/styles.css' %}">
+    
+    <!-- Блок для дополнительных CSS -->
+    {% block extra_css %}{% endblock %}
+    
+    <link rel="stylesheet" href="{% static '../css/styles.css' %}">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header role="banner">
+        <h1>Медицинский центр "Здоровье"</h1>
+    </header>
+
+    <!-- Навигация -->
+    <nav role="navigation" aria-label="Основное меню">
+        <ul>
+            <li><a href="{% url 'index' %}">Главная</a></li>
+            <li><a href="{% url 'about' %}">О нас</a></li>
+            <li><a href="{% url 'services' %}">Услуги</a></li>
+            <li><a href="{% url 'doctors' %}">Врачи</a></li>
+            <li><a href="{% url 'contacts' %}">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <!-- Основное содержимое -->
+    <main role="main">
+        {% block content %}
+        <!-- Сюда будет подставляться содержимое дочерних шаблонов -->
+        {% endblock %}
+    </main>
+
+    <!-- Подвал -->
+    <footer role="contentinfo">
+        <p>© 2023 Медицинский центр "Здоровье". Все права защищены.</p>
+    </footer>
+
+    <!-- Подключаем JavaScript -->
+    <script src="{% static '../js/script.js' %}"></script>
+    
+    <!-- Блок для дополнительного JavaScript -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
